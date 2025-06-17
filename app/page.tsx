@@ -193,7 +193,7 @@ export default function TusiAI() {
 
         {/* Main Dubbing Interface */}
         <div className="max-w-4xl mx-auto mb-16">
-          <Card className="shadow-xl border-0 bg-white/80 dark:bg-slate-800/90 backdrop-blur-sm dark:shadow-blue-900/20">
+          <Card className="shadow-xl border-0 bg-white/80 dark:bg-slate-800/90 backdrop-blur-sm dark:shadow-blue-900/20 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-blue-500/30 transition-all duration-300 dark:hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] dark:hover:shadow-blue-900/40">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Youtube className="h-6 w-6 text-red-500" />
@@ -209,7 +209,7 @@ export default function TusiAI() {
                   placeholder="Paste your YouTube link here..."
                   value={youtubeUrl}
                   onChange={(e) => setYoutubeUrl(e.target.value)}
-                  className="h-12 text-lg transition-all duration-200 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 dark:border-slate-700 dark:focus:border-blue-500"
+                  className="h-12 text-lg transition-all duration-200 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 dark:border-slate-700 dark:focus:border-blue-500 dark:bg-[#0F1729] dark:text-white dark:placeholder:text-gray-400"
                 />
                 {youtubeUrl && !isValidYouTubeUrl(youtubeUrl) && (
                   <p className="text-sm text-red-500">Please enter a valid YouTube URL</p>
