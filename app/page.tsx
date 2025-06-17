@@ -174,15 +174,15 @@ export default function TusiAI() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-950">
       <Header />
 
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="h-8 w-8 text-blue-600" />
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <Sparkles className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-blue-500 bg-clip-text text-transparent">
               Tusk.ai
             </h1>
           </div>
@@ -193,7 +193,7 @@ export default function TusiAI() {
 
         {/* Main Dubbing Interface */}
         <div className="max-w-4xl mx-auto mb-16">
-          <Card className="shadow-xl border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+          <Card className="shadow-xl border-0 bg-white/80 dark:bg-slate-800/90 backdrop-blur-sm dark:shadow-blue-900/20">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Youtube className="h-6 w-6 text-red-500" />
@@ -209,7 +209,7 @@ export default function TusiAI() {
                   placeholder="Paste your YouTube link here..."
                   value={youtubeUrl}
                   onChange={(e) => setYoutubeUrl(e.target.value)}
-                  className="h-12 text-lg transition-all duration-200 focus:ring-2 focus:ring-blue-500"
+                  className="h-12 text-lg transition-all duration-200 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 dark:border-slate-700 dark:focus:border-blue-500"
                 />
                 {youtubeUrl && !isValidYouTubeUrl(youtubeUrl) && (
                   <p className="text-sm text-red-500">Please enter a valid YouTube URL</p>
@@ -249,7 +249,7 @@ export default function TusiAI() {
               <Button
                 onClick={handleDubbing}
                 disabled={!youtubeUrl || !selectedLanguage || !isValidYouTubeUrl(youtubeUrl) || isProcessing}
-                className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-[1.02]"
+                className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 dark:from-blue-500 dark:to-blue-700 transition-all duration-200 transform hover:scale-[1.02]"
               >
                 {isProcessing ? (
                   <>
@@ -277,8 +277,8 @@ export default function TusiAI() {
 
               {/* Result Section */}
               {showResult && (
-                <div className="space-y-4 p-6 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                  <div className="flex items-center gap-2 text-green-700 dark:text-green-400">
+                <div className="space-y-4 p-6 bg-gradient-to-r from-green-50 to-blue-50 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg border border-green-200 dark:border-blue-800">
+                  <div className="flex items-center gap-2 text-green-700 dark:text-blue-400">
                     <Sparkles className="h-5 w-5" />
                     <span className="font-semibold">Dubbing Complete!</span>
                   </div>
@@ -315,22 +315,22 @@ export default function TusiAI() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-3">
-                    <Button className="flex-1 min-w-[140px]">
+                    <Button className="flex-1 min-w-[140px] dark:bg-blue-600 dark:hover:bg-blue-700">
                       <Download className="mr-2 h-4 w-4" />
                       Download
                     </Button>
-                    <Button variant="outline" className="flex-1 min-w-[140px]">
+                    <Button variant="outline" className="flex-1 min-w-[140px] dark:border-blue-700 dark:hover:bg-blue-900/50">
                       <Share2 className="mr-2 h-4 w-4" />
                       Share
                     </Button>
                     <div className="flex gap-2">
-                      <Button size="icon" variant="outline" className="text-blue-600">
+                      <Button size="icon" variant="outline" className="text-blue-600 dark:text-blue-400 dark:border-blue-700 dark:hover:bg-blue-900/50">
                         <Facebook className="h-4 w-4" />
                       </Button>
-                      <Button size="icon" variant="outline" className="text-sky-500">
+                      <Button size="icon" variant="outline" className="text-sky-500 dark:text-blue-400 dark:border-blue-700 dark:hover:bg-blue-900/50">
                         <Twitter className="h-4 w-4" />
                       </Button>
-                      <Button size="icon" variant="outline" className="text-green-600">
+                      <Button size="icon" variant="outline" className="text-green-600 dark:text-blue-400 dark:border-blue-700 dark:hover:bg-blue-900/50">
                         <MessageCircle className="h-4 w-4" />
                       </Button>
                     </div>
@@ -345,14 +345,14 @@ export default function TusiAI() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold flex items-center gap-2">
-              <History className="h-6 w-6 text-blue-600" />
+              <History className="h-6 w-6 text-blue-600 dark:text-blue-400" />
               Recent Dubs
             </h2>
             {isClient ? (
               <Button
                 variant="outline"
                 onClick={() => setShowHistory(!showHistory)}
-                className="transition-all duration-200"
+                className="transition-all duration-200 dark:border-blue-700 dark:hover:bg-blue-900/50"
               >
                 {showHistory ? "Hide" : "Show"} History
               </Button>
@@ -366,7 +366,7 @@ export default function TusiAI() {
           {isClient && showHistory && (
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {mockHistory.map((item) => (
-                <Card key={item.id} className="group hover:shadow-lg transition-all duration-200 cursor-pointer">
+                <Card key={item.id} className="group hover:shadow-lg transition-all duration-200 cursor-pointer dark:shadow-blue-900/20 dark:hover:shadow-blue-800/30">
                   <CardContent className="p-4">
                     <div className="aspect-video bg-slate-200 dark:bg-slate-700 rounded-lg mb-3 overflow-hidden">
                       <img
@@ -377,7 +377,7 @@ export default function TusiAI() {
                     </div>
                     <h3 className="font-semibold text-sm mb-2 line-clamp-2">{item.title}</h3>
                     <div className="flex gap-2 mb-2">
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-xs dark:bg-blue-900/50 dark:text-blue-200">
                         {item.originalLang} → {item.dubbedLang}
                       </Badge>
                     </div>

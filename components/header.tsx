@@ -34,7 +34,7 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <a
                 key={item.name}
