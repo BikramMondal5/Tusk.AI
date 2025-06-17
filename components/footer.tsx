@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">tusi.ai</h3>
+            <h3 className="text-lg font-semibold">Tusk.ai</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Transform your videos for global audiences with AI-powered dubbing technology.
             </p>
@@ -85,7 +85,7 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-slate-600 dark:text-slate-400">
           <p className="flex items-center justify-center gap-1">
-            © 2024 tusi.ai. Made with{" "}
+            © 2024 Tusk.ai. Made with{" "}
             <Heart className="h-4 w-4 text-red-500" /> for creators worldwide.
           </p>
         </div>

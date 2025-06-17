@@ -74,14 +74,43 @@ export default function TusiAI() {
   const [showHistory, setShowHistory] = useState(false)
   // Add this to handle client-side only rendering
   const [isClient, setIsClient] = useState(false)
+  // Add videoId state to store extracted YouTube video ID
+  const [videoId, setVideoId] = useState<string | null>(null)
 
   // This effect runs only on the client after hydration is complete
   useEffect(() => {
     setIsClient(true)
   }, [])
 
+  // Extract video ID from YouTube URL
+  useEffect(() => {
+    if (!youtubeUrl) {
+      setVideoId(null)
+      return
+    }
+
+    try {
+      const url = new URL(youtubeUrl)
+      let id = null
+
+      if (url.hostname === 'youtu.be') {
+        // Short youtu.be links
+        id = url.pathname.substring(1)
+      } else if (url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com') {
+        // Regular youtube.com links
+        const params = new URLSearchParams(url.search)
+        id = params.get('v')
+      }
+      
+      setVideoId(id)
+    } catch (error) {
+      console.error('Error parsing YouTube URL:', error)
+      setVideoId(null)
+    }
+  }, [youtubeUrl])
+
   const handleDubbing = async () => {
-    if (!youtubeUrl || !selectedLanguage) return
+    if (!youtubeUrl || !selectedLanguage || !videoId) return
 
     setIsProcessing(true)
     setProgress(0)
@@ -140,7 +169,7 @@ export default function TusiAI() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="h-8 w-8 text-blue-600" />
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              tusi.ai
+              Tusk.ai
             </h1>
           </div>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
@@ -240,16 +269,21 @@ export default function TusiAI() {
                     <span className="font-semibold">Dubbing Complete!</span>
                   </div>
 
-                  {/* Video Player Placeholder */}
-                  <div className="relative bg-black rounded-lg overflow-hidden">
-                    <div className="aspect-video flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <Play className="h-16 w-16 mx-auto mb-2 opacity-80" />
-                        <p className="text-lg">Dubbed Video Preview</p>
-                        <p className="text-sm opacity-70">Click to play your dubbed video</p>
-                      </div>
+                  {/* Original Video Iframe - Only render on client-side */}
+                  {isClient && videoId && (
+                    <div className="relative rounded-lg overflow-hidden">
+                      <iframe
+                        width="560"
+                        height="315"
+                        src={`https://www.youtube.com/embed/${videoId}`}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="w-full aspect-video"
+                      ></iframe>
                     </div>
-                  </div>
+                  )}
 
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-3">
@@ -286,16 +320,22 @@ export default function TusiAI() {
               <History className="h-6 w-6 text-blue-600" />
               Recent Dubs
             </h2>
-            <Button
-              variant="outline"
-              onClick={() => setShowHistory(!showHistory)}
-              className="transition-all duration-200"
-            >
-              {showHistory ? "Hide" : "Show"} History
-            </Button>
+            {isClient ? (
+              <Button
+                variant="outline"
+                onClick={() => setShowHistory(!showHistory)}
+                className="transition-all duration-200"
+              >
+                {showHistory ? "Hide" : "Show"} History
+              </Button>
+            ) : (
+              <div className="h-10 px-4 border rounded-md flex items-center text-muted-foreground">
+                Loading...
+              </div>
+            )}
           </div>
 
-          {showHistory && (
+          {isClient && showHistory && (
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {mockHistory.map((item) => (
                 <Card key={item.id} className="group hover:shadow-lg transition-all duration-200 cursor-pointer">

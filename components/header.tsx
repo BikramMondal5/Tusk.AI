@@ -29,7 +29,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-blue-600" />
             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              tusi.ai
+              Tusk.ai
             </span>
           </div>
 
