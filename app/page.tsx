@@ -76,6 +76,10 @@ export default function TusiAI() {
   const [isClient, setIsClient] = useState(false)
   // Add videoId state to store extracted YouTube video ID
   const [videoId, setVideoId] = useState<string | null>(null)
+  // Add new state variables for error handling
+  const [iframeError, setIframeError] = useState(false)
+  const [retryCount, setRetryCount] = useState(0)
+  const MAX_RETRIES = 3
 
   // This effect runs only on the client after hydration is complete
   useEffect(() => {
@@ -157,6 +161,16 @@ export default function TusiAI() {
   const isValidYouTubeUrl = (url: string) => {
     const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+/
     return youtubeRegex.test(url)
+  }
+
+  // Retry loading the iframe if it fails
+  const handleIframeError = () => {
+    if (retryCount < MAX_RETRIES) {
+      setRetryCount(retryCount + 1)
+      setIframeError(false) // Reset error state to retry
+    } else {
+      setIframeError(true) // Set error state to true after max retries
+    }
   }
 
   return (
@@ -275,13 +289,27 @@ export default function TusiAI() {
                       <iframe
                         width="560"
                         height="315"
-                        src={`https://www.youtube.com/embed/${videoId}`}
+                        src={`https://www.youtube.com/embed/${videoId}?mute=1&disablekb=1&controls=0`}
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         className="w-full aspect-video"
+                        onError={handleIframeError}
                       ></iframe>
+                      {iframeError && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-sm p-4">
+                          <div className="text-center">
+                            <p className="mb-2">Failed to load video. Please try again.</p>
+                            <Button
+                              onClick={handleIframeError}
+                              className="w-full max-w-xs mx-auto"
+                            >
+                              Retry
+                            </Button>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
 
