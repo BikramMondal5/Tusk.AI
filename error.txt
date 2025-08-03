@@ -1,18 +1,30 @@
 Using standard pip install.
 
-Collecting streamlit==1.25.0 (from -r /mount/src/tusk.ai/requirements.txt (line 3))
+Collecting setuptools>=65.0.0 (from -r /mount/src/tusk.ai/requirements.txt (line 4))
+
+  Downloading setuptools-80.9.0-py3-none-any.whl.metadata (6.6 kB)
+
+Collecting wheel>=0.38.0 (from -r /mount/src/tusk.ai/requirements.txt (line 5))
+
+  Downloading wheel-0.45.1-py3-none-any.whl.metadata (2.3 kB)
+
+Collecting pip>=25.0.0 (from -r /mount/src/tusk.ai/requirements.txt (line 6))
+
+  Downloading pip-25.2-py3-none-any.whl.metadata (4.7 kB)
+
+Collecting streamlit==1.25.0 (from -r /mount/src/tusk.ai/requirements.txt (line 9))
 
   Downloading streamlit-1.25.0-py2.py3-none-any.whl.metadata (8.1 kB)
 
-Collecting pytube==15.0.0 (from -r /mount/src/tusk.ai/requirements.txt (line 4))
+Collecting pytube==15.0.0 (from -r /mount/src/tusk.ai/requirements.txt (line 10))
 
   Downloading pytube-15.0.0-py3-none-any.whl.metadata (5.0 kB)
 
-Collecting moviepy==1.0.3 (from -r /mount/src/tusk.ai/requirements.txt (line 5))
+Collecting moviepy==1.0.3 (from -r /mount/src/tusk.ai/requirements.txt (line 11))
 
   Downloading moviepy-1.0.3.tar.gz (388 kB)
 
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 388.3/388.3 kB 11.2 MB/s eta 0:00:00[2025-08-03 10:28:44.890823] 
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 388.3/388.3 kB 13.2 MB/s eta 0:00:00[2025-08-03 10:33:02.697493] 
 
   Installing build dependencies: started
 
@@ -26,11 +38,11 @@ Collecting moviepy==1.0.3 (from -r /mount/src/tusk.ai/requirements.txt (line 5))
 
   Preparing metadata (pyproject.toml): finished with status 'done'
 
-Collecting numpy==1.24.3 (from -r /mount/src/tusk.ai/requirements.txt (line 6))
+Collecting numpy==1.24.3 (from -r /mount/src/tusk.ai/requirements.txt (line 12))
 
   Downloading numpy-1.24.3.tar.gz (10.9 MB)
 
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.9/10.9 MB 184.4 MB/s eta 0:00:00[2025-08-03 10:28:48.427685] 
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.9/10.9 MB 193.5 MB/s eta 0:00:00[2025-08-03 10:33:06.648332] 
 
   Installing build dependencies: started
 
@@ -282,7 +294,7 @@ pip._vendor.pyproject_hooks._impl.BackendUnavailable: Traceback (most recent cal
 
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
 
-  File "/tmp/pip-build-env-47hbwk9p/overlay/lib/python3.13/site-packages/setuptools/__init__.py", line 10, in <module>
+  File "/tmp/pip-build-env-3i162vsr/overlay/lib/python3.13/site-packages/setuptools/__init__.py", line 10, in <module>
 
     import distutils.core
 
@@ -318,15 +330,15 @@ Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=10.14.0)
 
 Downloading rich-14.1.0-py3-none-any.whl (243 kB)
 
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243.4/243.4 kB 14.4 MB/s eta 0:00:00[2025-08-03 10:28:54.646959] 
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243.4/243.4 kB 12.0 MB/s eta 0:00:00[2025-08-03 10:33:12.945548] 
 
 Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
 
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 122.6 MB/s eta 0:00:00[2025-08-03 10:28:54.662016] 
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 131.7 MB/s eta 0:00:00[2025-08-03 10:33:12.960506] 
 
 Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
 
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 73.2 MB/s eta 0:00:00[2025-08-03 10:28:54.695466] 
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 75.8 MB/s eta 0:00:00[2025-08-03 10:33:12.990526] 
 
 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
 
@@ -375,6 +387,4 @@ Successfully installed markdown-it-py-3.0.0 mdurl-0.1.2 pygments-2.19.2 rich-14.
 ────────────────────────────────────────────────────────────────────────────────────────
 
 
-[10:28:57] ❗️ installer returned a non-zero exit code
-
-[10:28:57] ❗️ Error during processing dependencies! Please fix the error and push an update, or try restarting the app.
+[10:33:16] ❗️ installer returned a non-zero exit code

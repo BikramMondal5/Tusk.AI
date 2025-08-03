@@ -9,7 +9,7 @@ pip>=25.0.0
 streamlit==1.25.0
 pytube==15.0.0
 moviepy==1.0.3
-numpy==1.24.3
+numpy>=1.26.0  # Updated to use pre-built wheels compatible with Python 3.13
 torch>=2.1.0
 torchvision>=0.16.0
 torchaudio>=2.1.0
