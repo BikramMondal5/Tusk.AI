@@ -13,7 +13,7 @@ numpy>=1.26.0  # Updated to use pre-built wheels compatible with Python 3.13
 torch>=2.1.0
 torchvision>=0.16.0
 torchaudio>=2.1.0
-Pillow==9.5.0
+Pillow>=10.0.0  # Updated from 9.5.0 to use pre-built wheels compatible with Python 3.13
 python-dotenv==1.0.0
 gradio==4.19.2
 pydub==0.25.1
