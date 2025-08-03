@@ -1,5 +1,11 @@
 # Fixed requirements.txt for Streamlit Cloud deployment
 
+# Essential build tools must come first
+setuptools>=65.0.0
+wheel>=0.38.0
+pip>=25.0.0
+
+# Main dependencies
 streamlit==1.25.0
 pytube==15.0.0
 moviepy==1.0.3
@@ -22,12 +28,6 @@ yt-dlp
 nest_asyncio
 gradio_client==0.10.1
 fastapi==0.112.2
-
-# Add setuptools to avoid distutils issues
-setuptools>=65.0.0
-
-# For Python 3.12+ compatibility
-wheel>=0.38.0
 
 # SoniTranslate custom repositories
 # Install these manually if pip has issues:
