@@ -5,15 +5,15 @@ setuptools>=65.0.0
 wheel>=0.38.0
 pip>=25.0.0
 
-# Main dependencies
-streamlit==1.25.0
+# Main dependencies - updated versions for Python 3.13 compatibility
+streamlit>=1.32.0  # Updated from 1.25.0 to work with Pillow 10+
 pytube==15.0.0
 moviepy==1.0.3
-numpy>=1.26.0  # Updated to use pre-built wheels compatible with Python 3.13
+numpy>=1.26.0  # For Python 3.13 compatibility
 torch>=2.1.0
 torchvision>=0.16.0
 torchaudio>=2.1.0
-Pillow>=10.0.0  # Updated from 9.5.0 to use pre-built wheels compatible with Python 3.13
+Pillow>=9.5.0,<10.0.0  # Modified to be compatible with streamlit 1.25.0
 python-dotenv==1.0.0
 gradio==4.19.2
 pydub==0.25.1
