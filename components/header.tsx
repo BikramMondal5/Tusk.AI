@@ -4,10 +4,13 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Menu, X, Sparkles } from "lucide-react"
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
+import { LoginForm } from "@/components/auth/login-form"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [authModalOpen, setAuthModalOpen] = useState(false)
 
   // Only render interactive elements on the client to avoid hydration mismatch
   useEffect(() => {
@@ -54,12 +57,28 @@ export function Header() {
             <div className="hidden md:flex items-center gap-2">
               {mounted ? (
                 <>
-                  <Button variant="ghost" size="sm">
-                    Login
-                  </Button>
-                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                    Register
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        Login
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogTitle>Sign In</DialogTitle>
+                      <LoginForm />
+                    </DialogContent>
+                  </Dialog>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                        Register
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogTitle>Create Account</DialogTitle>
+                      <LoginForm />
+                    </DialogContent>
+                  </Dialog>
                 </>
               ) : (
                 <>
@@ -95,12 +114,28 @@ export function Header() {
                 </a>
               ))}
               <div className="flex gap-2 pt-2 border-t">
-                <Button variant="ghost" size="sm" className="flex-1">
-                  Login
-                </Button>
-                <Button size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700">
-                  Register
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="ghost" size="sm" className="flex-1">
+                      Login
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogTitle>Sign In</DialogTitle>
+                    <LoginForm />
+                  </DialogContent>
+                </Dialog>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700">
+                      Register
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogTitle>Create Account</DialogTitle>
+                    <LoginForm />
+                  </DialogContent>
+                </Dialog>
               </div>
             </nav>
           </div>
