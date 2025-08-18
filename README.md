@@ -1,4 +1,4 @@
-# Tusk.AI
+# 🎥🧠 Tusk.AI
 
 ![Auto-Dub Screenshot](public/tusk-ai.png)
 A Next.js application that uses AI to automatically dub YouTube videos into different languages. This tool simplifies the process of translating and dubbing videos, making content accessible to a global audience.
