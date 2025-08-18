@@ -1,4 +1,4 @@
-# Auto-Dub
+# Tusk.AI
 
 A Next.js application that uses AI to automatically dub YouTube videos into different languages. This tool simplifies the process of translating and dubbing videos, making content accessible to a global audience.
 
@@ -31,7 +31,7 @@ A Next.js application that uses AI to automatically dub YouTube videos into diff
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/auto-dub.git
+   git clone https://github.com/BikramMondal5/Tusk.AI.git
    cd auto-dub
    ```
 
