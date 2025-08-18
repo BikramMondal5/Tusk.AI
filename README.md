@@ -13,11 +13,12 @@ A Next.js application that uses AI to automatically dub YouTube videos into diff
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
-- **UI Components**: Shadcn UI library
-- **API**: Next.js API routes
-- **Styling**: Tailwind CSS with custom theming
-- **Icons**: Lucide React
+- ⚛️ **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
+- ⚡ **Backend**: Supabase 
+- 🧩 **UI Components**: Shadcn UI library
+- 🔌 **API**: Next.js API routes
+- 🎨 **Styling**: Tailwind CSS with custom theming
+- 🎯 **Icons**: Lucide React
 
 ## ⚙️ Installation
 
@@ -56,10 +57,10 @@ A Next.js application that uses AI to automatically dub YouTube videos into diff
 
 ## 🚀 How to Use
 
-1. Enter the YouTube video URL in the input field.
-2. Select the target language for dubbing.
-3. Click the "Dub Video" button.
-4. Wait for the process to complete and download the dubbed video.
+1. 🔗 Enter the YouTube video URL in the input field
+2. 🌐 Select the target language for dubbing
+3. 🎬 Click the "Dub Video" button
+4. ⏳ Wait for the process to complete and 📥 download the dubbed video.
 
 ## 🤝 Contribution
 
